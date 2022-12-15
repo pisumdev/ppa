@@ -1,0 +1,311 @@
+[gd_scene load_steps=8 format=3 uid="uid://dd2nkrnnq5q1b"]
+
+[ext_resource type="Script" path="res://Scenes/Picross/board.gd" id="1_3tnmt"]
+[ext_resource type="FontVariation" uid="uid://c6qch7xocruby" path="res://Fonts/picross_font.tres" id="1_wxost"]
+[ext_resource type="PackedScene" uid="uid://4w7kxgseba3d" path="res://Scenes/Picross/tile.tscn" id="2_5j31l"]
+[ext_resource type="Texture2D" uid="uid://q6mpn5rq3684" path="res://Sprites/Picross/BoardInside.png" id="3_5sevp"]
+[ext_resource type="Texture2D" uid="uid://c8vs6k2i8env" path="res://Sprites/Picross/BoardAlt.png" id="4_gvm7v"]
+[ext_resource type="AudioStream" uid="uid://coujbymyk4e03" path="res://Audio/Sfx/miss.wav" id="6_id6r6"]
+
+[sub_resource type="Theme" id="Theme_jbyxe"]
+default_font = ExtResource("1_wxost")
+default_font_size = 8
+
+[node name="Board" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 141.0
+offset_bottom = 141.0
+theme = SubResource("Theme_jbyxe")
+script = ExtResource("1_3tnmt")
+tile_scene = ExtResource("2_5j31l")
+
+[node name="BoardOutside2" type="Sprite2D" parent="."]
+texture = ExtResource("4_gvm7v")
+centered = false
+
+[node name="BoardOutside" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.156863, 0.203922, 0.258824, 1)
+
+[node name="BoardInside" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(50, 50)
+texture = ExtResource("3_5sevp")
+centered = false
+
+[node name="RowHints" type="Label" parent="."]
+offset_left = -16.0
+offset_top = 54.0
+offset_right = 48.0
+offset_bottom = 145.0
+theme_override_colors/font_color = Color(0.00392157, 0.137255, 0.631373, 0.741176)
+text = "1234
+02345678
+"
+horizontal_alignment = 2
+
+[node name="ColumnHints" type="Label" parent="."]
+offset_left = 49.0
+offset_top = 2.0
+offset_right = 89.0
+offset_bottom = 50.0
+theme_override_colors/font_color = Color(0.00392157, 0.137255, 0.631373, 0.741176)
+vertical_alignment = 2
+
+[node name="ColumnHints0" type="Label" parent="ColumnHints"]
+offset_right = 8.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(0.00392157, 0.137255, 0.631373, 0.741176)
+text = "1
+2
+3
+4
+5
+6
+7
+8"
+vertical_alignment = 2
+
+[node name="ColumnHints1" type="Label" parent="ColumnHints"]
+offset_left = 6.0
+offset_right = 14.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(0.00392157, 0.137255, 0.631373, 0.741176)
+text = "1
+2
+3
+4
+5
+6
+7
+8"
+vertical_alignment = 2
+
+[node name="ColumnHints2" type="Label" parent="ColumnHints"]
+offset_left = 12.0
+offset_right = 20.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(0.00392157, 0.137255, 0.631373, 0.741176)
+text = "1
+2
+3
+4
+5
+6
+7
+8"
+vertical_alignment = 2
+
+[node name="ColumnHints3" type="Label" parent="ColumnHints"]
+offset_left = 18.0
+offset_right = 26.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(0.00392157, 0.137255, 0.631373, 0.741176)
+text = "1
+2
+3
+4
+5
+6
+7
+8"
+vertical_alignment = 2
+
+[node name="ColumnHints4" type="Label" parent="ColumnHints"]
+offset_left = 24.0
+offset_right = 32.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(0.00392157, 0.137255, 0.631373, 0.741176)
+text = "1
+2
+3
+4
+5
+6
+7
+8"
+vertical_alignment = 2
+
+[node name="ColumnHints5" type="Label" parent="ColumnHints"]
+offset_left = 30.0
+offset_right = 38.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(0.00392157, 0.137255, 0.631373, 0.741176)
+text = "1
+2
+3
+4
+5
+6
+7
+8"
+vertical_alignment = 2
+
+[node name="ColumnHints6" type="Label" parent="ColumnHints"]
+offset_left = 36.0
+offset_right = 44.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(0.00392157, 0.137255, 0.631373, 0.741176)
+text = "1
+2
+3
+4
+5
+6
+7
+8"
+vertical_alignment = 2
+
+[node name="ColumnHints7" type="Label" parent="ColumnHints"]
+offset_left = 42.0
+offset_right = 50.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(0.00392157, 0.137255, 0.631373, 0.741176)
+text = "1
+2
+3
+4
+5
+6
+7
+8"
+vertical_alignment = 2
+
+[node name="ColumnHints8" type="Label" parent="ColumnHints"]
+offset_left = 48.0
+offset_right = 56.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(0.00392157, 0.137255, 0.631373, 0.741176)
+text = "1
+2
+3
+4
+5
+6
+7
+8"
+vertical_alignment = 2
+
+[node name="ColumnHints9" type="Label" parent="ColumnHints"]
+offset_left = 54.0
+offset_right = 62.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(0.00392157, 0.137255, 0.631373, 0.741176)
+text = "1
+2
+3
+4
+5
+6
+7
+8"
+vertical_alignment = 2
+
+[node name="ColumnHints10" type="Label" parent="ColumnHints"]
+offset_left = 60.0
+offset_right = 68.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(0.00392157, 0.137255, 0.631373, 0.741176)
+text = "1
+2
+3
+4
+5
+6
+7
+8"
+vertical_alignment = 2
+
+[node name="ColumnHints11" type="Label" parent="ColumnHints"]
+offset_left = 66.0
+offset_right = 74.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(0.00392157, 0.137255, 0.631373, 0.741176)
+text = "1
+2
+3
+4
+5
+6
+7
+8"
+vertical_alignment = 2
+
+[node name="ColumnHints12" type="Label" parent="ColumnHints"]
+offset_left = 72.0
+offset_right = 80.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(0.00392157, 0.137255, 0.631373, 0.741176)
+text = "1
+2
+3
+4
+5
+6
+7
+8"
+vertical_alignment = 2
+
+[node name="ColumnHints13" type="Label" parent="ColumnHints"]
+offset_left = 78.0
+offset_right = 86.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(0.00392157, 0.137255, 0.631373, 0.741176)
+text = "1
+2
+3
+4
+5
+6
+7
+8"
+vertical_alignment = 2
+
+[node name="ColumnHints14" type="Label" parent="ColumnHints"]
+offset_left = 84.0
+offset_right = 92.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(0.00392157, 0.137255, 0.631373, 0.741176)
+text = "1
+2
+3
+4
+5
+6
+7
+8"
+vertical_alignment = 2
+
+[node name="MissesLabel" type="Label" parent="."]
+offset_left = 5.0
+offset_top = 18.0
+offset_right = 45.0
+offset_bottom = 58.0
+theme_override_colors/font_color = Color(0.45098, 0.560784, 0.996078, 1)
+text = "misses"
+
+[node name="MissesColonLabel" type="Label" parent="MissesLabel"]
+offset_left = 35.0
+offset_top = 1.0
+offset_right = 75.0
+offset_bottom = 41.0
+theme_override_colors/font_color = Color(0.45098, 0.560784, 0.996078, 1)
+text = ":"
+
+[node name="MissCounter" type="Label" parent="."]
+offset_left = 3.0
+offset_top = 26.0
+offset_right = 48.0
+offset_bottom = 58.0
+theme_override_colors/font_color = Color(0.0470588, 0.054902, 0.356863, 0.843137)
+theme_override_font_sizes/font_size = 16
+text = "000"
+
+[node name="MissAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_id6r6")

@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://4w7kxgseba3d"]
+
+[ext_resource type="Texture2D" uid="uid://csit3jdkjybc3" path="res://Sprites/Picross/Cursor.png" id="1_40vcn"]
+[ext_resource type="Script" path="res://Scenes/Picross/tile.gd" id="1_c8eu0"]
+[ext_resource type="Texture2D" uid="uid://mr3l4fwwt2eo" path="res://Sprites/Picross/Marker.png" id="3_6qpum"]
+[ext_resource type="FontVariation" uid="uid://c6qch7xocruby" path="res://Fonts/picross_font.tres" id="4_mdv14"]
+
+[node name="Tile" type="ColorRect"]
+offset_right = 5.0
+offset_bottom = 5.0
+color = Color(0.686275, 0.74902, 1, 0.721569)
+script = ExtResource("1_c8eu0")
+
+[node name="Marker" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_6qpum")
+centered = false
+
+[node name="CursorHighlight" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 0, 0.262745)
+
+[node name="CursorSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-1, -1)
+texture = ExtResource("1_40vcn")
+flip_h = true
+flip_v = true
+
+[node name="MistakeLabel" type="Label" parent="."]
+visible = false
+z_index = 1
+offset_left = -19.0
+offset_top = 2.0
+offset_right = 19.0
+offset_bottom = 8.0
+theme_override_colors/font_color = Color(1, 0.392157, 0.443137, 1)
+theme_override_fonts/font = ExtResource("4_mdv14")
+theme_override_font_sizes/font_size = 8
+text = "+ miss"
+horizontal_alignment = 1
+vertical_alignment = 1

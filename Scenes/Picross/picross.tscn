@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://g6swvrycs271"]
+
+[ext_resource type="PackedScene" uid="uid://dd2nkrnnq5q1b" path="res://Scenes/Picross/board.tscn" id="1_mm814"]
+[ext_resource type="Texture2D" uid="uid://bs48518f2j1ul" path="res://Sprites/Picross/Background.png" id="1_p884j"]
+[ext_resource type="AudioStream" uid="uid://bvxsctqujjo5c" path="res://Audio/Music/blue_intermission.mp3" id="3_ysedr"]
+[ext_resource type="Texture2D" uid="uid://cuq6wijqakvt1" path="res://Sprites/Picross/MusicNote.png" id="4_fdex8"]
+[ext_resource type="FontVariation" uid="uid://c6qch7xocruby" path="res://Fonts/picross_font.tres" id="5_s5j5e"]
+
+[node name="Picross" type="Node"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(0, -10)
+texture = ExtResource("1_p884j")
+centered = false
+
+[node name="Board" parent="." instance=ExtResource("1_mm814")]
+offset_left = 49.0
+offset_top = 10.0
+offset_right = 190.0
+offset_bottom = 151.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ysedr")
+autoplay = true
+
+[node name="MusicCredits" type="Sprite2D" parent="."]
+position = Vector2(5, 156)
+texture = ExtResource("4_fdex8")
+
+[node name="MusicLabel" type="Label" parent="MusicCredits"]
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 202.0
+offset_bottom = 24.0
+theme_override_colors/font_color = Color(1, 0.878431, 0.615686, 1)
+theme_override_fonts/font = ExtResource("5_s5j5e")
+theme_override_font_sizes/font_size = 8
+text = "blue intermission by congusbongus"
+
+[node name="Title" type="Label" parent="."]
+offset_left = 159.0
+offset_top = 6.0
+offset_right = 359.0
+offset_bottom = 29.0
+theme_override_colors/font_color = Color(1, 0.878431, 0.615686, 1)
+theme_override_fonts/font = ExtResource("5_s5j5e")
+theme_override_font_sizes/font_size = 8
+text = "PISUM PICROSS"

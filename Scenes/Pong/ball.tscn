@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://dp6dgf7h75x5g"]
+
+[ext_resource type="Texture2D" uid="uid://h316kqg53v4k" path="res://Sprites/Pong/Ball.png" id="1_egpr4"]
+[ext_resource type="Script" path="res://Scenes/Pong/ball.gd" id="1_fitsq"]
+[ext_resource type="AudioStream" uid="uid://cg2x1qmifem1v" path="res://Audio/Sfx/bounce.wav" id="3_8trf1"]
+[ext_resource type="AudioStream" uid="uid://x5o7cubeuqx8" path="res://Audio/Sfx/bounce2.wav" id="4_sld80"]
+[ext_resource type="AudioStream" uid="uid://coujbymyk4e03" path="res://Audio/Sfx/miss.wav" id="5_ri6ke"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ri7d8"]
+size = Vector2(10, 10)
+
+[node name="Ball" type="Area2D"]
+position = Vector2(120, 80)
+script = ExtResource("1_fitsq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_egpr4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ri7d8")
+
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="PaddleBounce" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8trf1")
+volume_db = -10.0
+
+[node name="WindowBounce" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_sld80")
+volume_db = -10.0
+
+[node name="BallLost" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ri6ke")
+volume_db = -10.0
+
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]

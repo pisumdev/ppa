@@ -1,0 +1,80 @@
+[gd_scene load_steps=13 format=3 uid="uid://c114xhoys48da"]
+
+[ext_resource type="FontFile" uid="uid://d1lv33s2f2ah8" path="res://Fonts/RETRO_SPACE.ttf" id="1_kgpxo"]
+[ext_resource type="Texture2D" uid="uid://canu71i5ryig3" path="res://Sprites/Menu/Background.png" id="1_qiav8"]
+[ext_resource type="Script" path="res://Scenes/Menu/menu.gd" id="2_ixspn"]
+[ext_resource type="FontFile" uid="uid://d4fpbxb4mry47" path="res://Fonts/kongtext.ttf" id="3_1c1ww"]
+[ext_resource type="PackedScene" uid="uid://2or28bim4dp5" path="res://Scenes/Pong/pong.tscn" id="3_uum1n"]
+[ext_resource type="PackedScene" uid="uid://cwcc11ju81ras" path="res://Scenes/Platformer/platformer.tscn" id="3_viiw6"]
+[ext_resource type="PackedScene" uid="uid://g6swvrycs271" path="res://Scenes/Picross/picross.tscn" id="4_mnqwi"]
+[ext_resource type="AudioStream" uid="uid://corb5a584d8mx" path="res://Audio/Music/JAM - In Heaven everythin intro loop.mp3" id="7_3hjr6"]
+[ext_resource type="Texture2D" uid="uid://cuq6wijqakvt1" path="res://Sprites/Picross/MusicNote.png" id="8_h1xm1"]
+[ext_resource type="FontVariation" uid="uid://c6qch7xocruby" path="res://Fonts/picross_font.tres" id="9_ae53c"]
+
+[sub_resource type="Theme" id="Theme_qhdnl"]
+default_font = ExtResource("1_kgpxo")
+default_font_size = 24
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3pewx"]
+blend_mode = 1
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_qhdnl")
+script = ExtResource("2_ixspn")
+platformer = ExtResource("3_viiw6")
+picross = ExtResource("4_mnqwi")
+pong = ExtResource("3_uum1n")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("1_qiav8")
+centered = false
+
+[node name="Title" type="Label" parent="."]
+offset_right = 239.0
+offset_bottom = 120.0
+theme_override_colors/font_color = Color(0.627451, 0.180392, 0.380392, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 0.690196, 0.517647)
+text = "playpisum
+advance"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SelectedGame" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 58.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.94902, 0.611765, 1)
+theme_override_colors/font_shadow_color = Color(0.396078, 0, 0.333333, 0.305882)
+theme_override_fonts/font = ExtResource("3_1c1ww")
+theme_override_font_sizes/font_size = 8
+text = "< PISUM PLATFORMER >"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_3hjr6")
+autoplay = true
+
+[node name="MusicCredits" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_3pewx")
+position = Vector2(5, 156)
+texture = ExtResource("8_h1xm1")
+
+[node name="MusicLabel" type="Label" parent="MusicCredits"]
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 202.0
+offset_bottom = 24.0
+theme_override_colors/font_color = Color(0.917647, 0.627451, 0.556863, 1)
+theme_override_fonts/font = ExtResource("9_ae53c")
+theme_override_font_sizes/font_size = 8
+text = "In heaven everythin by JAM"

@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://2or28bim4dp5"]
+
+[ext_resource type="Script" path="res://Scenes/Pong/pong.gd" id="1_27p81"]
+[ext_resource type="Texture2D" uid="uid://5cr1ydtuolpx" path="res://Sprites/Pong/Background.png" id="1_c3b2n"]
+[ext_resource type="PackedScene" uid="uid://dp6dgf7h75x5g" path="res://Scenes/Pong/ball.tscn" id="1_h1uvr"]
+[ext_resource type="PackedScene" uid="uid://3iqc5ftbi3ts" path="res://Scenes/Pong/paddle_left.tscn" id="2_7qad7"]
+[ext_resource type="PackedScene" uid="uid://bwmyo3rrvf0mh" path="res://Scenes/Pong/paddle_right.tscn" id="3_68p2b"]
+[ext_resource type="PackedScene" uid="uid://blb2gle7vcsn6" path="res://Scenes/Pong/interface.tscn" id="4_qik6w"]
+[ext_resource type="PackedScene" uid="uid://d3fqy37im1rtv" path="res://Scenes/Pong/music_player.tscn" id="7_j1odp"]
+
+[node name="Pong" type="Node"]
+script = ExtResource("1_27p81")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("1_c3b2n")
+offset = Vector2(120, 80)
+
+[node name="PaddleLeft" parent="." instance=ExtResource("2_7qad7")]
+
+[node name="PaddleRight" parent="." node_paths=PackedStringArray("ball") instance=ExtResource("3_68p2b")]
+ball = NodePath("../Ball")
+
+[node name="Ball" parent="." node_paths=PackedStringArray("paddle_left", "paddle_right") instance=ExtResource("1_h1uvr")]
+paddle_left = NodePath("../PaddleLeft")
+paddle_right = NodePath("../PaddleRight")
+
+[node name="Interface" parent="." instance=ExtResource("4_qik6w")]
+
+[node name="MusicPlayer" parent="." instance=ExtResource("7_j1odp")]
+volume_db = -8.0
+
+[connection signal="area_entered" from="PaddleLeft" to="Ball" method="_on_paddle_left_area_entered"]
+[connection signal="area_entered" from="PaddleRight" to="Ball" method="_on_paddle_right_area_entered"]
+[connection signal="player_one_scored" from="Ball" to="Interface" method="_on_ball_player_one_scored"]
+[connection signal="player_two_scored" from="Ball" to="Interface" method="_on_ball_player_two_scored"]
+[connection signal="end_game" from="Interface" to="PaddleLeft" method="_on_interface_end_game"]
+[connection signal="end_game" from="Interface" to="PaddleRight" method="_on_interface_end_game"]
+[connection signal="end_game" from="Interface" to="Ball" method="_on_interface_end_game"]
+[connection signal="start_game" from="Interface" to="PaddleLeft" method="_on_interface_start_game"]
+[connection signal="start_game" from="Interface" to="PaddleRight" method="_on_interface_start_game"]
+[connection signal="start_game" from="Interface" to="Ball" method="_on_interface_start_game"]

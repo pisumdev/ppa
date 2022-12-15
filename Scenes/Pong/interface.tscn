@@ -1,0 +1,279 @@
+[gd_scene load_steps=8 format=3 uid="uid://blb2gle7vcsn6"]
+
+[ext_resource type="FontFile" uid="uid://d1lv33s2f2ah8" path="res://Fonts/RETRO_SPACE.ttf" id="1_r7hyb"]
+[ext_resource type="Script" path="res://Scenes/Pong/interface.gd" id="2_gghw7"]
+[ext_resource type="Texture2D" uid="uid://5cr1ydtuolpx" path="res://Sprites/Pong/Background.png" id="3_02je5"]
+[ext_resource type="Texture2D" uid="uid://cuq6wijqakvt1" path="res://Sprites/Picross/MusicNote.png" id="4_nqgm3"]
+[ext_resource type="FontVariation" uid="uid://c6qch7xocruby" path="res://Fonts/picross_font.tres" id="5_r07pl"]
+
+[sub_resource type="Theme" id="Theme_f0kck"]
+default_font = ExtResource("1_r7hyb")
+default_font_size = 16
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qjlds"]
+blend_mode = 1
+
+[node name="Interface" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_f0kck")
+script = ExtResource("2_gghw7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(121, 81)
+texture = ExtResource("3_02je5")
+
+[node name="TitleScreen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Title" type="Label" parent="TitleScreen"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 18.0
+offset_right = 220.0
+offset_bottom = 41.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.992157, 0.937255, 0.541176, 1)
+theme_override_font_sizes/font_size = 24
+text = "pisum pong"
+horizontal_alignment = 1
+
+[node name="OnePlayerSelect" type="Label" parent="TitleScreen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 75.0
+offset_top = 103.0
+offset_right = 125.013
+offset_bottom = 115.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.992157, 0.937255, 0.541176, 1)
+theme_override_font_sizes/font_size = 8
+text = "ONE PLAYER"
+
+[node name="SelectRect" type="ColorRect" parent="TitleScreen/OnePlayerSelect"]
+offset_left = -5.0
+offset_top = 3.0
+offset_right = -2.0
+offset_bottom = 6.0
+color = Color(0.992157, 0.937255, 0.541176, 1)
+
+[node name="TwoPlayerSelect" type="Label" parent="TitleScreen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 75.0
+offset_top = 115.0
+offset_right = 125.0
+offset_bottom = 127.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.992157, 0.937255, 0.541176, 1)
+theme_override_font_sizes/font_size = 8
+text = "TWO PLAYER"
+
+[node name="SelectRect" type="ColorRect" parent="TitleScreen/TwoPlayerSelect"]
+offset_left = -5.0
+offset_top = 3.0
+offset_right = -2.0
+offset_bottom = 6.0
+color = Color(0.992157, 0.937255, 0.541176, 1)
+
+[node name="MusicCredits" type="Sprite2D" parent="TitleScreen"]
+material = SubResource("CanvasItemMaterial_qjlds")
+position = Vector2(5, 156)
+texture = ExtResource("4_nqgm3")
+
+[node name="MusicLabel" type="Label" parent="TitleScreen/MusicCredits"]
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 202.0
+offset_bottom = 24.0
+theme_override_colors/font_color = Color(0.992157, 0.937255, 0.541176, 1)
+theme_override_fonts/font = ExtResource("5_r07pl")
+theme_override_font_sizes/font_size = 8
+text = "Varicap by elPatrixF"
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PlayerOneScore" type="Label" parent="HUD"]
+offset_top = 10.0
+offset_right = 120.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0.992157, 0.937255, 0.541176, 1)
+text = "0"
+horizontal_alignment = 1
+
+[node name="PlayerTwoScore" type="Label" parent="HUD"]
+offset_left = 120.0
+offset_top = 10.0
+offset_right = 240.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0.992157, 0.937255, 0.541176, 1)
+text = "0"
+horizontal_alignment = 1
+
+[node name="GameRules" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Title" type="Label" parent="GameRules"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 18.0
+offset_right = 220.0
+offset_bottom = 41.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.992157, 0.937255, 0.541176, 1)
+theme_override_font_sizes/font_size = 24
+text = "pisum pong"
+horizontal_alignment = 1
+
+[node name="DifficultyLabel" type="Label" parent="GameRules"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 103.0
+offset_right = 90.0
+offset_bottom = 115.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.992157, 0.937255, 0.541176, 1)
+theme_override_font_sizes/font_size = 8
+text = "Difficulty:"
+horizontal_alignment = 2
+
+[node name="GoalLabel" type="Label" parent="GameRules"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 115.0
+offset_right = 90.0
+offset_bottom = 127.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.992157, 0.937255, 0.541176, 1)
+theme_override_font_sizes/font_size = 8
+text = "goal:"
+horizontal_alignment = 2
+
+[node name="DifficultySelect" type="Label" parent="GameRules"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 110.0
+offset_top = 103.0
+offset_right = 220.0
+offset_bottom = 115.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.992157, 0.937255, 0.541176, 1)
+theme_override_font_sizes/font_size = 8
+text = "easy"
+
+[node name="SelectRects" type="Control" parent="GameRules/DifficultySelect"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SelectRect" type="ColorRect" parent="GameRules/DifficultySelect/SelectRects"]
+offset_left = -5.0
+offset_top = 3.0
+offset_right = -2.0
+offset_bottom = 6.0
+color = Color(0.992157, 0.937255, 0.541176, 1)
+
+[node name="SelectRect2" type="ColorRect" parent="GameRules/DifficultySelect/SelectRects"]
+offset_left = 23.0
+offset_top = 3.0
+offset_right = 26.0
+offset_bottom = 6.0
+color = Color(0.992157, 0.937255, 0.541176, 1)
+
+[node name="GoalSelect" type="Label" parent="GameRules"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 110.0
+offset_top = 115.0
+offset_right = 220.0
+offset_bottom = 127.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.992157, 0.937255, 0.541176, 1)
+theme_override_font_sizes/font_size = 8
+text = "10"
+
+[node name="SelectRects" type="Control" parent="GameRules/GoalSelect"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SelectRect" type="ColorRect" parent="GameRules/GoalSelect/SelectRects"]
+offset_left = -5.0
+offset_top = 3.0
+offset_right = -2.0
+offset_bottom = 6.0
+color = Color(0.992157, 0.937255, 0.541176, 1)
+
+[node name="SelectRect2" type="ColorRect" parent="GameRules/GoalSelect/SelectRects"]
+offset_left = 13.0
+offset_top = 3.0
+offset_right = 16.0
+offset_bottom = 6.0
+color = Color(0.992157, 0.937255, 0.541176, 1)
+
+[node name="WinnerText" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -120.0
+offset_top = 70.0
+offset_right = 120.0
+offset_bottom = 93.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.137255, 0.211765, 0.454902, 1)
+theme_override_font_sizes/font_size = 24
+text = "PLAYER ONE WINS!"
+horizontal_alignment = 1
+
+[node name="ReturnTimer" type="Timer" parent="WinnerText"]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="WinnerText/ReturnTimer" to="." method="_on_return_timer_timeout"]

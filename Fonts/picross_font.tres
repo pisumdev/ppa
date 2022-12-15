@@ -1,0 +1,8 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://c6qch7xocruby"]
+
+[ext_resource type="FontFile" uid="uid://d4fpbxb4mry47" path="res://Fonts/kongtext.ttf" id="1_psdbu"]
+
+[resource]
+base_font = ExtResource("1_psdbu")
+spacing_glyph = -2
+spacing_top = -5

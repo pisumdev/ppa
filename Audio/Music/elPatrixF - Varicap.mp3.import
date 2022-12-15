@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ce4ysaflm68ru"
+path="res://.godot/imported/elPatrixF - Varicap.mp3-253f487b2c10389f2d130c1ce62bd9b3.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/elPatrixF - Varicap.mp3"
+dest_files=["res://.godot/imported/elPatrixF - Varicap.mp3-253f487b2c10389f2d130c1ce62bd9b3.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

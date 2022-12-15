@@ -7,6 +7,8 @@ couple simple games made to learn [godot](https://godotengine.org/).
 
 made in godot 4.0.beta8, might not work on other versions.
 
+sprites for the platformer are on [opengameart](https://opengameart.org/content/barebones-platformer-sprites) if you want to use them for anything.
+
 ## songs used:
 
   [evolution by elPatrixF (platformer)](http://modarchive.org/index.php?request=view_by_moduleid&query=161402)
